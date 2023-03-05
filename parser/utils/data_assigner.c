@@ -38,7 +38,7 @@ void	data_assigner(char *data, t_mapdata **map_data)
 
 	split_data = ft_split(data, ' ');
 	if (check_identifier(split_data[0]) == 1)
-		assigner(split_data[0], split_data[1]);
+		assigner(split_data[0], split_data[1], map_data);
 	freedom(split_data);
 	(void)split_data;
 	(void)map_data;

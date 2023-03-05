@@ -23,7 +23,8 @@ void	read_file(int file_fd, t_mapdata **map_data)
 	{
 		data_line = get_next_line(file_fd);
 		printf("Line %d is --> %s \n",c, data_line);
-		data_assigner(data_line, map_data);
+		if (data_line != NULL)
+			data_assigner(data_line, map_data);
 		printf("------------------------------\n");
 		c++;
 	}
