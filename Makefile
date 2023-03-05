@@ -10,13 +10,22 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	main.c \
+SRC_MAIN = 		main.c \
+				main_utils/errmanag.c \
+
+SRC_PARSER =	parser/parser.c \
+
+SRC_RAYCAST =	
 
 NAME = cub3d
 
 SEARCH = cub3d.h
 
-OBJ = $(SRC:%.c=%.o)
+OBJ_MAIN = $(SRC_MAIN:%.c=%.o)
+
+OBJ_PARSER = $(SRC_PARSER:%.c=%.o)
+
+OBJ_RAYCAST = $(SRC_RAYCAST:%.c=%.o)
 
 RM = rm -f
 
@@ -51,13 +60,13 @@ all: $(NAME)
 
 #### LINUX PARSER
 
-$(NAME): $(OBJ) $(SEARCH)
+$(NAME): $(OBJ_MAIN) $(OBJ_PARSER) $(OBJ_RAYCAST) $(SEARCH)
 	@make -C libs/Libft
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_SRC) -L. $(CFNAME)
+	$(CC) $(CFLAGS) $(OBJ_MAIN) $(OBJ_PARSER) $(OBJ_RAYCAST) $(LIBFT_SRC) -L. $(CFNAME)
 
 clean:
 	@make clean -C libs/Libft
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(OBJ_MAIN) $(OBJ_PARSER) $(OBJ_RAYCAST)
 
 fclean: clean
 	@rm -f libs/Libft/libft.a

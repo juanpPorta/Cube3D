@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errmanag.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcordoba <mcordoba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 19:00:46 by mcordoba          #+#    #+#             */
-/*   Updated: 2023/03/05 19:00:46 by mcordoba         ###   ########.fr       */
+/*   Created: 2023/03/05 20:07:11 by marvin            #+#    #+#             */
+/*   Updated: 2023/03/05 20:07:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
-int	main(int argc, char *argv[])
+void	errmanag(int argc)
 {
-
-	printf("Cub3d\n");
-	errmanag(argc);
-
-	(void)argc;
-	(void)argv;
-	return (0);
+	if (argc != 2)
+	{
+		printf("Please, insert a valid map: 'map.cub'\n");
+		exit (0);
+	}
 }

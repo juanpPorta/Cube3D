@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcordoba <mcordoba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 19:00:46 by mcordoba          #+#    #+#             */
-/*   Updated: 2023/03/05 19:00:46 by mcordoba         ###   ########.fr       */
+/*   Created: 2023/03/05 20:02:22 by marvin            #+#    #+#             */
+/*   Updated: 2023/03/05 20:02:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parser.h"
 
-int	main(int argc, char *argv[])
+void	parser(char *cub_file)
 {
-
-	printf("Cub3d\n");
-	errmanag(argc);
-
-	(void)argc;
-	(void)argv;
-	return (0);
+	printf("Parser\n");
+	(void)cub_file;
 }

@@ -13,6 +13,8 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "parser/parser.h"
+
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -21,6 +23,7 @@
 # include "libs/libft/libft.h"
 # include "libs/key_macos.h"
 
-# include "parser/parser.h"
+/*######	ERRMANAG	######*/
+void	errmanag(int argc);
 
 #endif

@@ -13,6 +13,13 @@
 #ifndef PARSER_H
 # define PARSER_H
 
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <math.h>
+# include "../libs/libft/libft.h"
+
 typedef struct s_rgbcol
 {
 	int			r;
@@ -34,5 +41,8 @@ typedef struct s_mapdata
 {
 //	char		*
 }				t_mapdata;
+
+/*######	MAIN PARSER		#######*/
+void	parser(char *cub_file);
 
 #endif
