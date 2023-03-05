@@ -10,17 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef PARSER_H
+# define PARSER_H
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <math.h>
-# include "libs/libft/libft.h"
-# include "libs/key_macos.h"
+typedef struct s_rgbcol
+{
+	int			r;
+	int			g;
+	int			b;
+}				t_rgbcol;
 
-# include "parser/parser.h"
+typedef struct s_rawmap
+{
+	char		*no_route;
+	char		*so_route;
+	char		*we_route;
+	char		*ea_route;
+	t_rgbcol	f_col;
+	t_rgbcol	c_col;
+}				t_rawmap;
+
+typedef struct s_mapdata
+{
+//	char		*
+}				t_mapdata;
 
 #endif
