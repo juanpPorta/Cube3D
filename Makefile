@@ -15,6 +15,8 @@ SRC_MAIN = 		main.c \
 				main_utils/file_manager.c \
 
 SRC_PARSER =	parser/parser.c \
+				parser/utils/read_file.c \
+				parser/utils/data_assigner.c \
 
 SRC_RAYCAST =	
 

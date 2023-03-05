@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 20:02:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/05 20:02:22 by marvin           ###   ########.fr       */
+/*   Created: 2023/03/05 23:22:36 by marvin            #+#    #+#             */
+/*   Updated: 2023/03/05 23:22:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "../parser.h"
 
-void	parser(char *cub_file)
+void	read_file(int file_fd, t_mapdata **map_data)
 {
-	t_mapdata	*map_data;
-	int			fd_map;
+	char	*data_line;
+	int		c;
 
-	map_data = NULL;
-	printf("Parser\n");
-	fd_map = open_file_and_check_ext(cub_file, ".cub");
-	//printf("Map fd --> %d\n", fd_map);
-	read_file(fd_map, &map_data);
-	close_file(fd_map);
+	c = 0;
+	while (data_line)
+	{
+		data_line = get_next_line(file_fd);
+		printf("Line %d is --> %s \n",c, data_line);
+		c++;
+	}
+	//data_line = get_next_line(file_fd);
+	//printf("Line")
 	(void)map_data;
-	(void)cub_file;
 }
