@@ -22,6 +22,7 @@ void	parser(char *cub_file)
 	fd_map = open_file_and_check_ext(cub_file, ".cub");
 	//printf("Map fd --> %d\n", fd_map);
 	read_file(fd_map, &map_data);
+	printf("NO data from RAW_DATA --> %s\n", map_data->raw_data.no_route);
 	close_file(fd_map);
 	(void)map_data;
 	(void)cub_file;

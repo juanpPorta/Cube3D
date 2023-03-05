@@ -18,11 +18,11 @@ int	check_identifier(char *identifier)
 {
 	printf("Identifier --> %s\n", identifier);
 	if (ft_strncmp(identifier, "NO", 2) == 0
-		&& ft_strncmp(identifier, "EA", 2) == 0
-		&& ft_strncmp(identifier, "WE", 2) == 0
-		&& ft_strncmp(identifier, "SO", 2) == 0
-		&& ft_strncmp(identifier, "F", 1) == 0
-		&& ft_strncmp(identifier, "C", 1) == 0)
+		|| ft_strncmp(identifier, "EA", 2) == 0
+		|| ft_strncmp(identifier, "WE", 2) == 0
+		|| ft_strncmp(identifier, "SO", 2) == 0
+		|| ft_strncmp(identifier, "F", 1) == 0
+		|| ft_strncmp(identifier, "C", 1) == 0)
 	{
 		return (1);
 	}
@@ -36,6 +36,7 @@ void	data_assigner(char *data, t_mapdata **map_data)
 {
 	char	**split_data;
 
+	printf("Dataline --> %s\n", data);
 	split_data = ft_split(data, ' ');
 	if (check_identifier(split_data[0]) == 1)
 		assigner(split_data[0], split_data[1], map_data);
@@ -48,6 +49,14 @@ void	data_assigner(char *data, t_mapdata **map_data)
 */
 void	assigner(char *identifier, char *data, t_mapdata **map_data)
 {
+	// if (ft_strncmp(identifier, "NO", 2) == 0)
+	// {
+		// printf("PATATAA\n");
+		// (*map_data)->raw_data.no_route = malloc(ft_strlen(data)
+				// * sizeof(char *) + 1);
+		// (*map_data)->raw_data.no_route = data;
+	// }
+
 	(void)identifier;
 	(void)data;
 	(void)map_data;
