@@ -35,5 +35,10 @@ int		check_file_ext(char *file, char *ext);
 int		open_file_and_check_ext(char *file, char *ext);
 void	close_file(int file_fd);
 
+///////////////////////////////////////////
+//	file_manager.c
+///////////////////////////////////////////
+void	freedom(char **matrix);
+void	double_freedom(char **matrix, char *line);
 
 #endif
