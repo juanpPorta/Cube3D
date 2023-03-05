@@ -23,8 +23,17 @@
 # include "libs/libft/libft.h"
 # include "libs/key_macos.h"
 
-/*######	ERRMANAG	######*/
+///////////////////////////////////////////
+//	errmanag.c
+///////////////////////////////////////////
 void	errmanag(int argc, char *argv[]);
 int		check_file_ext(char *file, char *ext);
+
+///////////////////////////////////////////
+//	file_manager.c
+///////////////////////////////////////////
+int		open_file_and_check_ext(char *file, char *ext);
+void	close_file(int file_fd);
+
 
 #endif

@@ -17,3 +17,9 @@
 ## Map
 
 - [ ] For every char saved, check if its a correct value of char (0, 1, N, S, E, W)
+
+
+----------------------------------------------
+
+## data_assigner.c
+- Crear funcion que asigne datos a su identificador

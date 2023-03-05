@@ -12,6 +12,7 @@
 
 SRC_MAIN = 		main.c \
 				main_utils/errmanag.c \
+				main_utils/file_manager.c \
 
 SRC_PARSER =	parser/parser.c \
 

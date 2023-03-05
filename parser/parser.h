@@ -13,6 +13,8 @@
 #ifndef PARSER_H
 # define PARSER_H
 
+#include "../cub3d.h"
+
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -27,7 +29,7 @@ typedef struct s_rgbcol
 	int			b;
 }				t_rgbcol;
 
-typedef struct s_rawmap
+typedef struct s_rawdata
 {
 	char		*no_route;
 	char		*so_route;
@@ -35,14 +37,21 @@ typedef struct s_rawmap
 	char		*ea_route;
 	t_rgbcol	f_col;
 	t_rgbcol	c_col;
-}				t_rawmap;
+}				t_rawdata;
 
 typedef struct s_mapdata
 {
-//	char		*
+	t_rawdata	raw_data;
 }				t_mapdata;
 
-/*######	MAIN PARSER		#######*/
+///////////////////////////////////////////
+//	parser.c
+///////////////////////////////////////////
 void	parser(char *cub_file);
+
+///////////////////////////////////////////
+//	data_assigner.c
+///////////////////////////////////////////
+void	data_assigner(char *data, t_mapdata **map_data);
 
 #endif
