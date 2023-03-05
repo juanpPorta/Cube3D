@@ -24,6 +24,7 @@
 # include "libs/key_macos.h"
 
 /*######	ERRMANAG	######*/
-void	errmanag(int argc);
+void	errmanag(int argc, char *argv[]);
+int		check_file_ext(char *file, char *ext);
 
 #endif

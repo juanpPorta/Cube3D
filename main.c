@@ -16,7 +16,7 @@ int	main(int argc, char *argv[])
 {
 
 	printf("Cub3d\n");
-	errmanag(argc);
+	errmanag(argc, argv);
 
 	(void)argc;
 	(void)argv;
