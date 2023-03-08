@@ -63,5 +63,6 @@ int		check_identifier(char *identifier);
 void	data_assigner(char *data, t_mapdata *map_data);
 void	assigner(char *identifier, char *data, t_mapdata *map_data);
 void	color_assigner(char *identifier, char *data, t_mapdata *map_data);
+int		check_color(char *color);
 
 #endif

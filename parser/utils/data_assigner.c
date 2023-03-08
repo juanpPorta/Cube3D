@@ -85,15 +85,38 @@ void	color_assigner(char *identifier, char *data, t_mapdata *map_data)
 	split_data = ft_split(data, ',');
 	if (ft_strncmp(identifier, "F", 1) == 0)
 	{
-		map_data->raw_data.f_col.r = ft_atoi(split_data[0]);
-		map_data->raw_data.f_col.g = ft_atoi(split_data[1]);
-		map_data->raw_data.f_col.b = ft_atoi(split_data[2]);
+		map_data->raw_data.f_col.r = check_color(split_data[0]);
+		map_data->raw_data.f_col.g = check_color(split_data[1]);
+		map_data->raw_data.f_col.b = check_color(split_data[2]);
 	}
 	else if (ft_strncmp(identifier, "C", 1) == 0)
 	{
-		map_data->raw_data.c_col.r = ft_atoi(split_data[0]);
-		map_data->raw_data.c_col.g = ft_atoi(split_data[1]);
-		map_data->raw_data.c_col.b = ft_atoi(split_data[2]);
+		map_data->raw_data.c_col.r = check_color(split_data[0]);
+		map_data->raw_data.c_col.g = check_color(split_data[1]);
+		map_data->raw_data.c_col.b = check_color(split_data[2]);
 	}
 	freedom(split_data);
+}
+
+/* Check correct color values. Return color value.
+	If color exceeds their correct range, return value will be rounded
+	to limits.
+	If color doesnt exist, return value will be 0
+*/
+
+int	check_color(char *color)
+{
+	int	c_value;
+
+	if (color != NULL)
+	{
+		c_value = ft_atoi(color);
+		if (c_value > 255)
+			return (255);
+		else if (c_value < 0)
+			return (0);
+		else
+			return (c_value);
+	}
+	return (0);
 }
