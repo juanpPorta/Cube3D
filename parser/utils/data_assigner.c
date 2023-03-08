@@ -16,7 +16,7 @@
 */
 int	check_identifier(char *identifier)
 {
-	printf("Identifier --> %s\n", identifier);
+	//printf("Identifier --> %s\n", identifier);
 	if (ft_strncmp(identifier, "NO", 2) == 0
 		|| ft_strncmp(identifier, "EA", 2) == 0
 		|| ft_strncmp(identifier, "WE", 2) == 0
@@ -26,18 +26,20 @@ int	check_identifier(char *identifier)
 	{
 		return (1);
 	}
-	printf("Bad sprite/color indentifier in map. Check it\n");
+	//printf("Bad sprite/color indentifier in map. Check it\n");
 	return (0);
 }
 
 /* Assign data to their identifier. Data is passed by GNL_iterator
 */
-void	data_assigner(char *data, t_mapdata **map_data)
+void	data_assigner(char *data, t_mapdata *map_data)
 {
 	char	**split_data;
 
-	printf("Dataline --> %s\n", data);
+	//printf("Dataline --> %s\n", data);
 	split_data = ft_split(data, ' ');
+	//printf("Identifier --> %s\n", split_data[0]);
+	//printf("DATA --> %s\n", split_data[1]);
 	if (check_identifier(split_data[0]) == 1)
 		assigner(split_data[0], split_data[1], map_data);
 	freedom(split_data);
@@ -47,17 +49,30 @@ void	data_assigner(char *data, t_mapdata **map_data)
 
 /* Find identifier and put the data into
 */
-void	assigner(char *identifier, char *data, t_mapdata **map_data)
+void	assigner(char *identifier, char *data, t_mapdata *map_data)
 {
-	// if (ft_strncmp(identifier, "NO", 2) == 0)
-	// {
-		// printf("PATATAA\n");
-		// (*map_data)->raw_data.no_route = malloc(ft_strlen(data)
-				// * sizeof(char *) + 1);
-		// (*map_data)->raw_data.no_route = data;
-	// }
+	if (ft_strncmp(identifier, "NO", 2) == 0)
+	{
+		map_data->raw_data.no_route = malloc(ft_strlen(data) * sizeof(char *) - 1);
+		ft_strlcpy(map_data->raw_data.no_route, data, ft_strlen(data) - 1);
+	}
+	else if (ft_strncmp(identifier, "EA", 2) == 0)
+	{
+		map_data->raw_data.ea_route = malloc(ft_strlen(data) * sizeof(char *) - 1);
+		ft_strlcpy(map_data->raw_data.ea_route, data, ft_strlen(data) - 1);
+	}
+	else if (ft_strncmp(identifier, "WE", 2) == 0)
+	{
+		map_data->raw_data.we_route = malloc(ft_strlen(data) * sizeof(char *) - 1);
+		ft_strlcpy(map_data->raw_data.we_route, data, ft_strlen(data) - 1);
+	}
+	else if (ft_strncmp(identifier, "SO", 2) == 0)
+	{
+		map_data->raw_data.so_route = malloc(ft_strlen(data) * sizeof(char *) - 1);
+		ft_strlcpy(map_data->raw_data.so_route, data, ft_strlen(data) - 1);
+	}
 
-	(void)identifier;
-	(void)data;
-	(void)map_data;
+	//(void)identifier;
+	//(void)data;
+	//(void)map_data;
 }

@@ -43,6 +43,7 @@ typedef struct s_mapdata
 {
 	t_rawdata	raw_data;
 	int			fd_map;
+	int			init;
 }				t_mapdata;
 
 ///////////////////////////////////////////
@@ -53,13 +54,13 @@ void	parser(char *cub_file);
 ///////////////////////////////////////////
 //	read_file.c
 ///////////////////////////////////////////
-void	read_file(int file_fd, t_mapdata **map_data);
+void	read_file(int file_fd, t_mapdata *map_data);
 
 ///////////////////////////////////////////
 //	data_assigner.c
 ///////////////////////////////////////////
 int		check_identifier(char *identifier);
-void	data_assigner(char *data, t_mapdata **map_data);
-void	assigner(char *identifier, char *data, t_mapdata **map_data);
+void	data_assigner(char *data, t_mapdata *map_data);
+void	assigner(char *identifier, char *data, t_mapdata *map_data);
 
 #endif
