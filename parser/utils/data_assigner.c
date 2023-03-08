@@ -72,7 +72,6 @@ void	assigner(char *identifier, char *data, t_mapdata *map_data)
 		ft_strlcpy(map_data->raw_data.so_route, data, ft_strlen(data) - 1);
 	}
 
-	//(void)identifier;
-	//(void)data;
-	//(void)map_data;
+
+
 }

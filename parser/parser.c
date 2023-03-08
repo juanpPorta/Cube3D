@@ -22,6 +22,16 @@ static void	data_printer(t_mapdata map_data)
 	printf("SO data from RAW_DATA --> %s\n", map_data.raw_data.so_route);
 }
 
+/* Free of data raw_map
+*/
+static void	datafree(t_mapdata map_data)
+{
+	free(map_data.raw_data.no_route);
+	free(map_data.raw_data.ea_route);
+	free(map_data.raw_data.we_route);
+	free(map_data.raw_data.so_route);
+}
+
 void	parser(char *cub_file)
 {
 	t_mapdata	map_data;
@@ -34,6 +44,7 @@ void	parser(char *cub_file)
 	read_file(fd_map, &map_data);
 	data_printer(map_data);
 	close_file(fd_map);
+	datafree(map_data);
 	(void)map_data;
 	(void)cub_file;
 }
