@@ -12,28 +12,33 @@
 
 #include "../parser.h"
 
-/* Assign data to their identifier. Data is passed by GNL_iterator
+/* Assign data to their identifier. Data is passed by GNL_iterator. Return 1 if
+	data was allocated. Return 0 if data is not allocated
 */
-void	data_assigner(char *data, t_mapdata *map_data)
+int	data_assigner(char *data, t_mapdata *map_data)
 {
 	char	**split_data;
 
-	//printf("Dataline --> %s\n", data);
 	split_data = ft_split(data, ' ');
-	//printf("Identifier --> %s\n", split_data[0]);
-	//printf("DATA --> %s\n", split_data[1]);
 	if (check_identifier(split_data[0]) == 1)
+	{
 		assigner(split_data[0], split_data[1], map_data);
+		return (1);
+	}
+	else
+	{
+		/*printf("Data_assigner\n\t[DATA][0]  --> %s\n\t[DATA][1]  --> %s\n"\
+, split_data[0], split_data[1]);*/
+		return (0);
+	}
 	freedom(split_data);
-	(void)split_data;
-	(void)map_data;
 }
 
 /* Find identifier and put the data into
 */
 void	assigner(char *identifier, char *data, t_mapdata *map_data)
 {
-	printf("ASSIGNER C_COL_DAC --> %d\n", map_data->dac.c_col);
+	//printf("ASSIGNER C_COL_DAC --> %d\n", map_data->dac.c_col);
 	if (ft_strncmp(identifier, "NO", 2) == 0 && data != NULL)
 		rute_asign(&map_data->raw_data.no_route, data, &map_data->dac.no_rut);
 	else if (ft_strncmp(identifier, "EA", 2) == 0 && data != NULL)
@@ -65,7 +70,6 @@ void	rute_asign(char **rawmap_id, char *data, int *id_dac)
 
 /* Split color data and assign it to their identifier
 */
-//! MUST NEED A REFRACTORIZATION
 void	col_asign(t_rgbcol *col, char *data, int *id_dac)
 {
 	char	**split_data;

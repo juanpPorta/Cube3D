@@ -79,7 +79,7 @@ void	read_file(int file_fd, t_mapdata *map_data);
 ///////////////////////////////////////////
 //	data_assigner.c
 ///////////////////////////////////////////
-void	data_assigner(char *data, t_mapdata *map_data);
+int		data_assigner(char *data, t_mapdata *map_data);
 void	assigner(char *identifier, char *data, t_mapdata *map_data);
 void	col_asign(t_rgbcol *col, char *data, int *id_dac);
 void	rute_asign(char **rawmap_id, char *data, int *id_dac);
