@@ -13,7 +13,7 @@
 #ifndef PARSER_H
 # define PARSER_H
 
-#include "../cub3d.h"
+# include "../cub3d.h"
 
 # include <unistd.h>
 # include <stdio.h>
@@ -22,6 +22,7 @@
 # include <math.h>
 # include "../libs/libft/libft.h"
 
+// Struct for save color in rgb mode
 typedef struct s_rgbcol
 {
 	int			r;
@@ -29,6 +30,13 @@ typedef struct s_rgbcol
 	int			b;
 }				t_rgbcol;
 
+// Struct for check if data is already assigned
+typedef struct s_dac
+{
+	/* data */
+}				t_dac;
+
+// Struct for save RAW data from .cub file
 typedef struct s_rawdata
 {
 	char		*no_route;
@@ -39,6 +47,7 @@ typedef struct s_rawdata
 	t_rgbcol	c_col;
 }				t_rawdata;
 
+// Main struct of parser
 typedef struct s_mapdata
 {
 	t_rawdata	raw_data;
@@ -59,15 +68,15 @@ void	read_file(int file_fd, t_mapdata *map_data);
 ///////////////////////////////////////////
 //	data_assigner.c
 ///////////////////////////////////////////
-int		check_identifier(char *identifier);
 void	data_assigner(char *data, t_mapdata *map_data);
 void	assigner(char *identifier, char *data, t_mapdata *map_data);
 void	color_assigner(char *identifier, char *data, t_mapdata *map_data);
 void	route_assigner(char **rawmap_id, char *data, t_mapdata *map_data);
 
 ///////////////////////////////////////////
-//	checkers.c
+//	assigner_checkers.c
 ///////////////////////////////////////////
+int		check_identifier(char *identifier);
 int		check_color(char *color);
 
 #endif
