@@ -69,7 +69,7 @@ void	parser(char *cub_file);
 ///////////////////////////////////////////
 //	parser_err_msg.c
 ///////////////////////////////////////////
-void	errmsg_two_ids(void);
+void	errmsg_two_ids(char *type_err);
 
 ///////////////////////////////////////////
 //	read_file.c
@@ -81,7 +81,7 @@ void	read_file(int file_fd, t_mapdata *map_data);
 ///////////////////////////////////////////
 void	data_assigner(char *data, t_mapdata *map_data);
 void	assigner(char *identifier, char *data, t_mapdata *map_data);
-void	color_assigner(char *identifier, char *data, t_mapdata *map_data);
+void	col_asign(t_rgbcol *col, char *data, int *id_dac);
 void	rute_asign(char **rawmap_id, char *data, int *id_dac);
 
 ///////////////////////////////////////////

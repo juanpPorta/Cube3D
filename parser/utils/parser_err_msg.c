@@ -14,8 +14,8 @@
 
 /* Print and exit program when identifier in .cub file is duplicated
 */
-void	errmsg_two_ids(void)
+void	errmsg_two_ids(char *type_err)
 {
-	printf("[ERROR] Duplicated identifiers in .cub file\n");
+	printf("[ERROR] Duplicated identifiers [%s] in .cub file\n", type_err);
 	exit (1);
 }
