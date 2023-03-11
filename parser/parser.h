@@ -63,6 +63,11 @@ int		check_identifier(char *identifier);
 void	data_assigner(char *data, t_mapdata *map_data);
 void	assigner(char *identifier, char *data, t_mapdata *map_data);
 void	color_assigner(char *identifier, char *data, t_mapdata *map_data);
+void	route_assigner(char **rawmap_id, char *data, t_mapdata *map_data);
+
+///////////////////////////////////////////
+//	checkers.c
+///////////////////////////////////////////
 int		check_color(char *color);
 
 #endif

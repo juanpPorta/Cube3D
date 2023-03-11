@@ -19,7 +19,7 @@ void	read_file(int file_fd, t_mapdata *map_data)
 
 	c = 0;
 	//printf("------------------------------\n");
-	while (data_line /*&& c < 1*/)
+	while (data_line && c < 1)
 	{
 		//printf("FILE READER\n");
 		data_line = get_next_line(file_fd);
