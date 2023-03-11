@@ -47,14 +47,22 @@ void	assigner(char *identifier, char *data, t_mapdata *map_data)
 	color_assigner(identifier, data, map_data);
 }
 
-/* Assign route data to their id in raw_map struct. Return 1 if data was allocated
+/* Assign route data to their id in raw_map struct. Exit program if data was
+	allocated before
 */
 void	rute_asign(char **rawmap_id, char *data, int *id_dac)
 {
-	*rawmap_id = malloc(ft_strlen(data) * sizeof(char *));
-	ft_strlcpy(*rawmap_id, data, ft_strlen(data) - 1);
-	*id_dac = 1;
-	(void)id_dac;
+	if (*id_dac == 0)
+	{
+		*rawmap_id = malloc(ft_strlen(data) * sizeof(char *));
+		ft_strlcpy(*rawmap_id, data, ft_strlen(data) - 1);
+		*id_dac = 1;
+	}
+	else if (*id_dac == 1)
+	{
+		printf("[ERROR] Duplicated identifiers in .cub file\n");
+		exit (1);
+	}
 }
 
 /* Split color data and assign it to their identifier
