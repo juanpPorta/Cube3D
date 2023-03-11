@@ -59,10 +59,7 @@ void	rute_asign(char **rawmap_id, char *data, int *id_dac)
 		*id_dac = 1;
 	}
 	else if (*id_dac == 1)
-	{
-		printf("[ERROR] Duplicated identifiers in .cub file\n");
-		exit (1);
-	}
+		errmsg_two_ids();
 }
 
 /* Split color data and assign it to their identifier
@@ -74,15 +71,25 @@ void	color_assigner(char *identifier, char *data, t_mapdata *map_data)
 	split_data = ft_split(data, ',');
 	if (ft_strncmp(identifier, "F", 1) == 0)
 	{
-		map_data->raw_data.f_col.r = check_color(split_data[0]);
-		map_data->raw_data.f_col.g = check_color(split_data[1]);
-		map_data->raw_data.f_col.b = check_color(split_data[2]);
+		if (map_data->dac.f_col == 0)
+		{
+			map_data->raw_data.f_col.r = check_color(split_data[0]);
+			map_data->raw_data.f_col.g = check_color(split_data[1]);
+			map_data->raw_data.f_col.b = check_color(split_data[2]);
+		}
+		else
+			errmsg_two_ids();
 	}
 	else if (ft_strncmp(identifier, "C", 1) == 0)
 	{
-		map_data->raw_data.c_col.r = check_color(split_data[0]);
-		map_data->raw_data.c_col.g = check_color(split_data[1]);
-		map_data->raw_data.c_col.b = check_color(split_data[2]);
+		if (map_data->dac.f_col == 0)
+		{
+			map_data->raw_data.c_col.r = check_color(split_data[0]);
+			map_data->raw_data.c_col.g = check_color(split_data[1]);
+			map_data->raw_data.c_col.b = check_color(split_data[2]);
+		}
+		else
+			errmsg_two_ids();
 	}
 	freedom(split_data);
 }
