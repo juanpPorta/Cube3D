@@ -12,6 +12,18 @@
 
 #include "../parser.h"
 
+/* Initialice t_dac checker struct
+*/
+void	init_checker_dac(t_mapdata *map_data)
+{
+	map_data->dac.no_rut = 0;
+	map_data->dac.so_rut = 0;
+	map_data->dac.we_rut = 0;
+	map_data->dac.ea_rut = 0;
+	map_data->dac.c_col = 0;
+	map_data->dac.f_col = 0;
+}
+
 /* Check if identifier is equal. If its equal, return 1
 */
 int	check_identifier(char *identifier)

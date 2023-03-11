@@ -19,6 +19,7 @@ void	read_file(int file_fd, t_mapdata *map_data)
 
 	c = 0;
 	//printf("------------------------------\n");
+	init_checker_dac(map_data);
 	while (data_line /*&& c < 1*/)
 	{
 		//printf("FILE READER\n");

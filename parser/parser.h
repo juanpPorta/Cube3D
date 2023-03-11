@@ -30,10 +30,15 @@ typedef struct s_rgbcol
 	int			b;
 }				t_rgbcol;
 
-// Struct for check if data is already assigned
+// Struct for check if data (RAWDATA) is already assigned
 typedef struct s_dac
 {
-	/* data */
+	int			no_rut;
+	int			so_rut;
+	int			we_rut;
+	int			ea_rut;
+	int			f_col;
+	int			c_col;
 }				t_dac;
 
 // Struct for save RAW data from .cub file
@@ -51,6 +56,7 @@ typedef struct s_rawdata
 typedef struct s_mapdata
 {
 	t_rawdata	raw_data;
+	t_dac		dac;
 	int			fd_map;
 	int			init;
 }				t_mapdata;
@@ -71,11 +77,12 @@ void	read_file(int file_fd, t_mapdata *map_data);
 void	data_assigner(char *data, t_mapdata *map_data);
 void	assigner(char *identifier, char *data, t_mapdata *map_data);
 void	color_assigner(char *identifier, char *data, t_mapdata *map_data);
-void	route_assigner(char **rawmap_id, char *data, t_mapdata *map_data);
+void	rute_asign(char **rawmap_id, char *data, int *id_dac);
 
 ///////////////////////////////////////////
 //	assigner_checkers.c
 ///////////////////////////////////////////
+void	init_checker_dac(t_mapdata *map_data);
 int		check_identifier(char *identifier);
 int		check_color(char *color);
 

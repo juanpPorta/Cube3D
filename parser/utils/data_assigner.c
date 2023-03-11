@@ -33,14 +33,15 @@ void	data_assigner(char *data, t_mapdata *map_data)
 */
 void	assigner(char *identifier, char *data, t_mapdata *map_data)
 {
+	printf("ASSIGNER NO_DAC --> %d\n", map_data->dac.no_rut);
 	if (ft_strncmp(identifier, "NO", 2) == 0 && data != NULL)
-		route_assigner(&map_data->raw_data.no_route, data, map_data);
+		rute_asign(&map_data->raw_data.no_route, data, &map_data->dac.no_rut);
 	else if (ft_strncmp(identifier, "EA", 2) == 0 && data != NULL)
-		route_assigner(&map_data->raw_data.ea_route, data, map_data);
+		rute_asign(&map_data->raw_data.ea_route, data, &map_data->dac.ea_rut);
 	else if (ft_strncmp(identifier, "WE", 2) == 0 && data != NULL)
-		route_assigner(&map_data->raw_data.we_route, data, map_data);
+		rute_asign(&map_data->raw_data.we_route, data, &map_data->dac.we_rut);
 	else if (ft_strncmp(identifier, "SO", 2) == 0 && data != NULL)
-		route_assigner(&map_data->raw_data.so_route, data, map_data);
+		rute_asign(&map_data->raw_data.so_route, data, &map_data->dac.so_rut);
 	else if ((ft_strncmp(identifier, "F", 1) == 0 && data != NULL)
 		|| (ft_strncmp(identifier, "C", 1) == 0 && data != NULL))
 	color_assigner(identifier, data, map_data);
@@ -48,11 +49,12 @@ void	assigner(char *identifier, char *data, t_mapdata *map_data)
 
 /* Assign route data to their id in raw_map struct. Return 1 if data was allocated
 */
-void	route_assigner(char **rawmap_id, char *data, t_mapdata *map_data)
+void	rute_asign(char **rawmap_id, char *data, int *id_dac)
 {
 	*rawmap_id = malloc(ft_strlen(data) * sizeof(char *));
 	ft_strlcpy(*rawmap_id, data, ft_strlen(data) - 1);
-	(void)map_data;
+	*id_dac = 1;
+	(void)id_dac;
 }
 
 /* Split color data and assign it to their identifier
