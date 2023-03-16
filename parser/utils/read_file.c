@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 23:22:36 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/05 23:22:36 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/16 15:07:45 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	read_file(int file_fd, t_mapdata *map_data)
 	int		c;
 
 	c = 0;
+	data_line = NULL;
 	//printf("------------------------------\n");
 	init_checker_dac(map_data);
 	while (data_line /*&& c < 1*/)
