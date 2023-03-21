@@ -6,7 +6,7 @@
 #    By: jporta <jporta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 14:59:15 by mcordoba          #+#    #+#              #
-#    Updated: 2023/03/16 16:35:58 by jporta           ###   ########.fr        #
+#    Updated: 2023/03/21 14:58:40 by jporta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_PARSER =	parser/parser.c \
 				parser/utils/assigner_checkers.c \
 				parser/utils/parser_err_msg.c
 
-SRC_RAYCAST =	
+SRC_RAYCAST =	raycast/raycast.c
 
 NAME = cub3d
 

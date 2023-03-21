@@ -3,42 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcordoba <mcordoba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 18:55:14 by mcordoba          #+#    #+#             */
-/*   Updated: 2023/03/05 18:55:14 by mcordoba         ###   ########.fr       */
+/*   Updated: 2023/03/21 14:58:09 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "libs/key_macos.h"
+# include "libs/libft/libft.h"
 # include "parser/parser.h"
-
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
+# include "raycast/raycast.h"
 # include <limits.h>
 # include <math.h>
-# include "libs/libft/libft.h"
-# include "libs/key_macos.h"
+# include <mlx.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+///////////////////////////////////////////
+//	estructure for manage program
+///////////////////////////////////////////
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+	char	**map;
+	int		count;
+}			t_vars;
+
+void		draw(t_vars *vars);
 
 ///////////////////////////////////////////
 //	errmanag.c
 ///////////////////////////////////////////
-void	errmanag(int argc, char *argv[]);
-int		check_file_ext(char *file, char *ext);
+void		errmanag(int argc, char *argv[]);
+int			check_file_ext(char *file, char *ext);
 
 ///////////////////////////////////////////
 //	file_manager.c
 ///////////////////////////////////////////
-int		open_file_and_check_ext(char *file, char *ext);
-void	close_file(int file_fd);
+int			open_file_and_check_ext(char *file, char *ext);
+void		close_file(int file_fd);
 
 ///////////////////////////////////////////
 //	file_manager.c
 ///////////////////////////////////////////
-void	freedom(char **matrix);
-void	double_freedom(char **matrix, char *line);
+void		freedom(char **matrix);
+void		double_freedom(char **matrix, char *line);
 
 #endif
