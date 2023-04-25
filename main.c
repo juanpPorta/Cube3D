@@ -6,7 +6,7 @@
 /*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 19:00:46 by mcordoba          #+#    #+#             */
-/*   Updated: 2023/03/21 15:03:59 by jporta           ###   ########.fr       */
+/*   Updated: 2023/04/24 17:42:47 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ int	main(int argc, char *argv[])
 
 	printf("\t\033[0;35m----> Cub3d <----\033[0m\n");
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1000, 800, "cube");
+	vars.ancho = 800;
+	vars.largo = 1000;
+	vars.win = mlx_new_window(vars.mlx, vars.largo, vars.ancho, "cube");
 	draw(&vars);
+	// draw_minimap(&vars);
 	mlx_hook(vars.win, 17, 1L << 17, cerrar, &vars);
 	mlx_key_hook(vars.win, mlx_hook, &vars);
 	mlx_loop(vars.mlx);

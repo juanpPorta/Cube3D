@@ -6,7 +6,7 @@
 /*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 18:55:14 by mcordoba          #+#    #+#             */
-/*   Updated: 2023/03/21 14:58:09 by jporta           ###   ########.fr       */
+/*   Updated: 2023/04/12 19:21:23 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ typedef struct s_vars
 	void	*mlx;
 	void	*win;
 	char	**map;
+	int		ancho;
+	int		largo;
 	int		count;
 }			t_vars;
 
-void		draw(t_vars *vars);
-
+void	draw_minimap(t_vars *vars);
+void	draw(t_vars *vars);
 ///////////////////////////////////////////
 //	errmanag.c
 ///////////////////////////////////////////
