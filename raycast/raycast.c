@@ -6,7 +6,7 @@
 /*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:00:32 by jporta            #+#    #+#             */
-/*   Updated: 2023/04/24 17:53:47 by jporta           ###   ########.fr       */
+/*   Updated: 2023/04/26 20:25:30 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,33 @@ void	draw(t_vars *vars)
 	int  u = 0;
 			//1000 ancho 800 largo
 	imgs = 	malloc(1 * sizeof(imgs));
-	i = 0;
 	imgs->img = mlx_new_image(vars->mlx, vars->largo, vars->ancho);
 	fin = mlx_get_data_addr(imgs->img, &imgs->bit_per_pixel, &imgs->size_line, &imgs->endian);
-	while (u <= vars->ancho)
-	{	
-		while (i <= (vars->ancho * vars->largo * 4))
-		{
-			fin[i] = (char)254;
-			i += vars->largo;
-		}
-		u++;
-		i = u * 4;
-	}
-	i = 0;
 	u = 0;
-	while (u <= vars->ancho)
+	int z;
+	i = 1;
+	while (u < vars->ancho)
 	{	
-		while (i <= (vars->ancho * vars->largo * 4))
+		z = 0;
+		while (z < (vars->largo))
 		{
-			if (i == 250*4)
+			fin[i] = (char)240;
+			fin[i + 1] = (char)240;
+			fin[i + 2] = (char)240;
+			if(z % 200 == 0 || u %200 == 0)
 			{
-				fin[i] = (char)0;
+				fin[i + 1] = (char)0;
+				fin[i + 2] = (char)0;
 			}
-			else
-				fin[i] = (char)254;
-			i += vars->largo;
+			i += 4;
+			z += 1;
 		}
 		u++;
-		i = u * 4;
+		// z += 200;
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, imgs->img, 0, 0);
 	mlx_destroy_image(vars->mlx, imgs->img);
+	free(imgs);
 }
 
 
